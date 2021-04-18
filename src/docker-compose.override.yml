@@ -4,7 +4,7 @@ services:
   rigdb:
     container_name: rigdb
     environment:
-      SA_PASSWORD: "rig1234"
+      SA_PASSWORD: "RiGw12345678"
       ACCEPT_EULA: "Y"
     restart: always
     ports:
@@ -24,6 +24,7 @@ services:
     container_name: rig.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:RigConnectionString=Server=rigdb;Database=RigDb;User Id=sa;Password=RiGw12345678"
     depends_on:
       - rigdb
     ports:
