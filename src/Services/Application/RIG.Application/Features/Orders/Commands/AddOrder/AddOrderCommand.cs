@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MediatR;
+using RIG.Application.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RIG.Application.ViewModels
+namespace RIG.Application.Features.Orders.Commands.AddOrder
 {
-    public class OrdersVm
+    public class AddOrderCommand : IRequest<OrdersVm>
     {
-        public int Id { get; set; }
         public int CustomerId { get; set; }
         public decimal TotalPrice { get; set; }
 

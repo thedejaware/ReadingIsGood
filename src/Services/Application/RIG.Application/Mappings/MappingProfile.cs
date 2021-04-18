@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using RIG.Application.Features.Orders.Commands.AddOrder;
+using RIG.Application.Features.Orders.Commands.UpdateOrder;
 using RIG.Application.ViewModels;
 using RIG.Domain.Entities;
 using System;
@@ -13,7 +15,12 @@ namespace RIG.Application.Mappings
     {
         public MappingProfile()
         {
+
+            // Order Mapping
             CreateMap<Order, OrdersVm>().ReverseMap();
+            CreateMap<Order, AddOrderCommand>().ReverseMap();
+            CreateMap<Order, UpdateOrderCommand>().ReverseMap();
+
 
         }
     }
