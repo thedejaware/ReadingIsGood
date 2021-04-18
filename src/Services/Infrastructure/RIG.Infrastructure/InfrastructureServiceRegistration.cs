@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RIG.Application.Contracts.Persistence;
 using RIG.Infrastructure.Persistence;
+using RIG.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +19,8 @@ namespace RIG.Infrastructure
             services.AddDbContext<RigContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("RigConnectionString")));
 
-            //services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
-            //services.AddScoped<IOrderRepository, OrderRepository>();
-
-            //services.Configure<EmailSettings>(c => configuration.GetSection("EmailSettings"));
-            //services.AddTransient<IEmailService, EmailService>();
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
             return services;
         }
