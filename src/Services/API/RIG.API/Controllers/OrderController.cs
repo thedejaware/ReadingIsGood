@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RIG.Application.Features.Orders.Commands.AddOrder;
@@ -8,12 +9,12 @@ using RIG.Application.Features.Orders.Queries.GetOrdersList;
 using RIG.Application.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
 namespace RIG.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class OrderController : ControllerBase
