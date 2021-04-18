@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  rigdb:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+
+  portainer:
+    image: portainer/portainer-ce
+  
+  rig.api:
+    image: ${DOCKER_REGISTRY-}rigapi
+    build:
+      context: .
+      dockerfile: Services/API/RIG.API/Dockerfile
+
+volumes:
+  portainer_data:
