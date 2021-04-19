@@ -45,7 +45,12 @@ namespace RIG.API.Middlewares
                     StatusCode = response.StatusCode
                 };
 
-                var errorJson = JsonSerializer.Serialize(errorResponse);
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+
+                };
+                var errorJson = JsonSerializer.Serialize(errorResponse, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
                 await response.WriteAsync(errorJson);
                 throw;
