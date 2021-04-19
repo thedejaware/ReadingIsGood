@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using RIG.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace RIG.Application.Features.Orders.Commands.UpdateOrder
         public string Expiration { get; set; }
         public string CVV { get; set; }
         public int PaymentMethod { get; set; }
+        public List<OrderDetailsVm> OrderDetails { get; set; }
+
 
     }
 }

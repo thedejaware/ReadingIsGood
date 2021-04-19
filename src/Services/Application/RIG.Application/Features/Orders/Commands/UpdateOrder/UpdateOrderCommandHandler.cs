@@ -19,6 +19,13 @@ namespace RIG.Application.Features.Orders.Commands.UpdateOrder
         private readonly IMapper _mapper;
         private readonly ILogger<UpdateOrderCommandHandler> _logger;
 
+        public UpdateOrderCommandHandler(IOrderRepository repository, IMapper mapper, ILogger<UpdateOrderCommandHandler> logger)
+        {
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        }
+
         public async Task<bool> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
         {
             var orderToUpdate = await _repository.GetByIdAsync(request.Id);

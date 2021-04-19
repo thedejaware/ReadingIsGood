@@ -27,6 +27,7 @@ namespace RIG.Application.Mappings
             // Order Detail
             //CreateMap<List<OrderDetailsVm>, AddOrderCommand>().ReverseMap();
             CreateMap<OrderDetail, OrderDetailsVm>().ReverseMap();
+
             // Customer Mapping
             CreateMap<Customer, CustomerVm>().ReverseMap();
             CreateMap<Customer, AddCustomerCommand>().ReverseMap();
