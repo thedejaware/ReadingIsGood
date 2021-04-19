@@ -1,7 +1,8 @@
 # ReadingIsGood
 ReadingIsGood - Online Books Retail
 
-This is an ASP.NET Core Web API Project including principles of Clean Architecture and Domain Driven Design concepts
+This is an ASP.NET Core Web API Project including principles of Clean Architecture and how Domain Driven Design concepts dovetail into Clean Architecture
+
 
 #### Technologies 
 - ASP.NET Core 5
@@ -48,6 +49,8 @@ you can add a Customer with new username and password. All the endpoints except 
 Project consists of Core and Periphery Layers. 
 - Core Layers: RIG.Application & RIG.Domain
 - Periphery Layers: RIG.API & RIG.Infrastructure
+
+[![](https://blob.jacobsdata.com/software-alchemy/entry12/clean-domain-driven-design-jacobs1.png)](https://blob.jacobsdata.com/software-alchemy/entry12/clean-domain-driven-design-jacobs1.png)
 
 #### RIG.Application Layer
 - This layer is about business use case. CQRS Pattern with MediatR has been implemented in this Layer.
