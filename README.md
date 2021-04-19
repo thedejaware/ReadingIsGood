@@ -25,7 +25,7 @@ CPU: 2
 
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 
-After the microservice, database and portainer are composed, you can launch the following services;
+After the microservice, database and portainer are composed you can launch the following services;
 
 - RIG.API = http://localhost:7001/swagger/index.html
 - Portainer (Container Management) = http://localhost:9000/
