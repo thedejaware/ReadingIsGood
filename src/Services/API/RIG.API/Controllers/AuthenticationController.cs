@@ -54,7 +54,7 @@ namespace RIG.API.Controllers
                     signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                     );
 
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = true,
                     Data = new

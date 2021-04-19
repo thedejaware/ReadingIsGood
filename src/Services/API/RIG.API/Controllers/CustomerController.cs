@@ -36,13 +36,13 @@ namespace RIG.API.Controllers
             var query = new GetCustomerQuery(id);
             var customer = await _mediator.Send(query);
             if (customer != null)
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = true,
                     Data = customer
                 });
             else
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = false,
                     ErrorMessage = "No records found"
@@ -58,13 +58,13 @@ namespace RIG.API.Controllers
             var query = new GetAllCustomerQuery();
             var customers = await _mediator.Send(query);
             if (customers != null)
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = true,
                     Data = customers
                 });
             else
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = false,
                     ErrorMessage = "Unable to get customers"
@@ -78,13 +78,13 @@ namespace RIG.API.Controllers
         {
             var result = await _mediator.Send(command);
             if (result != null)
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = true,
                     Data = result
                 });
             else
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = false,
                     ErrorMessage = "Unable to add customer"
@@ -100,12 +100,12 @@ namespace RIG.API.Controllers
         {
             var result = await _mediator.Send(command);
             if(result)
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = true
                 });
             else
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = false,
                     ErrorMessage = "Unable to update customer"
@@ -120,12 +120,12 @@ namespace RIG.API.Controllers
             var command = new DeleteCustomerCommand() { Id = id };
             var result = await _mediator.Send(command);
             if (result)
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = true
                 });
             else
-                return new JsonResult(new ResultModel
+                return new JsonResult(new ResponseModel
                 {
                     Success = false,
                     ErrorMessage = "Unable to delete customer"

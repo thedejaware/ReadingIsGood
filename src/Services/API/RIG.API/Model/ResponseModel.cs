@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 
 namespace RIG.API.Model
 {
-    public class ResultModel
+    public class ResponseModel
     {
 
         public bool Success { get; set; }
         public string ErrorMessage { get; set; }
         public object Data { get; set; }
+        public int StatusCode { get; set; }
     }
 }
 

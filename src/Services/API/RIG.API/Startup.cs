@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RIG.API.Middlewares;
 using RIG.Application;
 using RIG.Infrastructure;
 using System;
@@ -104,6 +105,8 @@ namespace RIG.API
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseMiddleware<GlobalErrorHandlingMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
