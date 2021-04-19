@@ -1,7 +1,7 @@
 # ReadingIsGood
 ReadingIsGood - Online Books Retail
 
-This is an ASP.NET Core Web API Project including principles of Clean Architecture. 
+This is an ASP.NET Core Web API Project including principles of Clean Architecture and Domain Driven Design concepts
 
 #### Technologies 
 - ASP.NET Core 5
