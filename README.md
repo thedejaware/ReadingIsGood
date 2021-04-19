@@ -66,6 +66,8 @@ Project consists of Core and Periphery Layers.
 #### RIG.Infrastructure Layer
 - This layer includes implementation of abstraction inside the Application Layer. Database operations are being performed in this layer.
 
+#### RIG.API Layer
+- This is the Presentation Layer of the project. 
 
 
 
