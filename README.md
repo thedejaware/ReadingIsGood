@@ -1,7 +1,8 @@
 # ReadingIsGood
 ReadingIsGood - Online Books Retail
 
-This is an ASP.NET Core Web API Project  following the principles of Clean Architecture. 
+This is an ASP.NET Core Web API Project including principles of Clean Architecture and how Domain Driven Design concepts work with Clean Architecture
+
 
 #### Technologies 
 - ASP.NET Core 5
@@ -22,9 +23,10 @@ To Install the project;
 Memory: 4 GB
 CPU: 2
 - At the root directory of the project which include docker-compose.yml files, run below command:
+
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 
-After the microservice, database and portainer are composed, you can launch the following services;
+After the microservice, database and portainer are composed you can launch the following services;
 
 - RIG.API = http://localhost:7001/swagger/index.html
 - Portainer (Container Management) = http://localhost:9000/
@@ -48,6 +50,8 @@ Project consists of Core and Periphery Layers.
 - Core Layers: RIG.Application & RIG.Domain
 - Periphery Layers: RIG.API & RIG.Infrastructure
 
+[![](https://blob.jacobsdata.com/software-alchemy/entry12/clean-domain-driven-design-jacobs1.png)](https://blob.jacobsdata.com/software-alchemy/entry12/clean-domain-driven-design-jacobs1.png)
+
 #### RIG.Application Layer
 - This layer is about business use case. CQRS Pattern with MediatR has been implemented in this Layer.
 - Layer Structure;
@@ -62,6 +66,8 @@ Project consists of Core and Periphery Layers.
 #### RIG.Infrastructure Layer
 - This layer includes implementation of abstraction inside the Application Layer. Database operations are being performed in this layer.
 
+#### RIG.API Layer
+- This is the Presentation Layer of the project. 
 
 
 
