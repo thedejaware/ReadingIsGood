@@ -34,14 +34,14 @@ After the microservice, database and portainer are composed, you can launch the 
 	- Username = sa
 	- Password = RiGw12345678
 
-- When the applications starts up, EF Migrations automatically are applied to SQL Server
-- In order to use endpoints, first you have to call Authentication endpoint.
-You can use the following username and password
+- When the applications starts up, EF Migrations are automatically applied to SQL Server
+- In order to use endpoints, first you have to call Authentication endpoint to get JWT token. For this, You can use the following username and password
 
 		 username = "mma"
 		 password = "123"
 or
-You can add a Customer with new username and password. All the endpoints except Adding Customer have been secured using JWT.
+
+you can add a Customer with new username and password. All the endpoints except "Adding Customer Endpoint" have been secured using JWT.
 
 
 Project consists of Core and Periphery Layers. 
@@ -57,7 +57,7 @@ Project consists of Core and Periphery Layers.
 
 
 #### RIG.Domain Layer
-- This layer consistes of Customer, Order and OrderDetail Entities
+- This layer includes Customer, Order and OrderDetail Entities
 
 #### RIG.Infrastructure Layer
 - This layer includes implementation of abstraction inside the Application Layer. Database operations are being performed in this layer.
