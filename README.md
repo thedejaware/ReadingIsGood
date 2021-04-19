@@ -22,6 +22,7 @@ To Install the project;
 Memory: 4 GB
 CPU: 2
 - At the root directory of the project which include docker-compose.yml files, run below command:
+
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 
 After the microservice, database and portainer are composed, you can launch the following services;
