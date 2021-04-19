@@ -56,6 +56,7 @@ Project consists of Core and Periphery Layers.
 - This layer is about business use case. CQRS Pattern with MediatR has been implemented in this Layer.
 - Layer Structure;
 	- Behaviours: This folder is used for Validations, Logging and other Cross-Cutting Concerns.
+	   - Validatior Errors and Unhandled Errors are being handled.
 	- Contracts: This folder stores all interfaces for abstracting use case implementations
 	- Features: This folder applies  CQRS Design Pattern for handling business use cases
 
