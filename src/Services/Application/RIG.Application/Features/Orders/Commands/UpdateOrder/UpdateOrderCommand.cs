@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RIG.Application.Features.Orders.Commands.UpdateOrder
 {
-    public class UpdateOrderCommand : IRequest
+    public class UpdateOrderCommand : IRequest<bool>
     {
         public int Id { get; set; }
         public decimal TotalPrice { get; set; }

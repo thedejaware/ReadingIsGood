@@ -15,13 +15,14 @@ namespace RIG.Application.Features.Orders.Commands.AddOrder
 {
     public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand, OrdersVm>
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly IOrderRepository _repository;
+        private readonly IOrderDetailRepository _orderDetailRepository;
         private readonly IMapper _mapper;
         private readonly ILogger<AddOrderCommandHandler> _logger;
 
         public AddOrderCommandHandler(IOrderRepository orderRepository, IMapper mapper, ILogger<AddOrderCommandHandler> logger)
         {
-            _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
+            _repository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
@@ -30,7 +31,7 @@ namespace RIG.Application.Features.Orders.Commands.AddOrder
         {
             var orderEntity = _mapper.Map<Order>(request);
 
-            var newOrder = await _orderRepository.AddAsync(orderEntity);
+            var newOrder = await _repository.AddAsync(orderEntity);
 
             _logger.LogInformation($"Order {newOrder.Id} is successfully created.");
 

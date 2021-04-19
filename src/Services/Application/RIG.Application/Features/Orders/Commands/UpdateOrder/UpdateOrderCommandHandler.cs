@@ -13,15 +13,15 @@ using System.Threading.Tasks;
 
 namespace RIG.Application.Features.Orders.Commands.UpdateOrder
 {
-    class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand>
+    class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, bool>
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly IOrderRepository _repository;
         private readonly IMapper _mapper;
         private readonly ILogger<UpdateOrderCommandHandler> _logger;
 
-        public async Task<Unit> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
         {
-            var orderToUpdate = await _orderRepository.GetByIdAsync(request.Id);
+            var orderToUpdate = await _repository.GetByIdAsync(request.Id);
             if (orderToUpdate == null)
             {
                 throw new NotFoundException(nameof(Order), request.Id);
@@ -30,11 +30,11 @@ namespace RIG.Application.Features.Orders.Commands.UpdateOrder
             // Client'tan glen veriler (request) ile veritabnındaki veriler (orderToUpdate) Map'leniyor
             _mapper.Map(request, orderToUpdate, typeof(UpdateOrderCommand), typeof(Order));
 
-            await _orderRepository.UpdateAsync(orderToUpdate);
+            await _repository.UpdateAsync(orderToUpdate);
 
             _logger.LogInformation($"Order {orderToUpdate.Id} is successfully updated.");
 
-            return Unit.Value;
+            return true;
         }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using RIG.Application.Features.Customers.Commands.AddCustomer;
+using RIG.Application.Features.Customers.Commands.UpdateCustomer;
+using RIG.Application.Features.Customers.Queries.Login;
 using RIG.Application.Features.Orders.Commands.AddOrder;
 using RIG.Application.Features.Orders.Commands.UpdateOrder;
 using RIG.Application.ViewModels;
@@ -11,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace RIG.Application.Mappings
 {
-    public class MappingProfile: Profile
+    public class MappingProfile : Profile
     {
         public MappingProfile()
         {
@@ -21,6 +24,14 @@ namespace RIG.Application.Mappings
             CreateMap<Order, AddOrderCommand>().ReverseMap();
             CreateMap<Order, UpdateOrderCommand>().ReverseMap();
 
+            // Order Detail
+            //CreateMap<List<OrderDetailsVm>, AddOrderCommand>().ReverseMap();
+            CreateMap<OrderDetail, OrderDetailsVm>().ReverseMap();
+            // Customer Mapping
+            CreateMap<Customer, CustomerVm>().ReverseMap();
+            CreateMap<Customer, AddCustomerCommand>().ReverseMap();
+            CreateMap<Customer, UpdateCustomerCommand>().ReverseMap();
+            CreateMap<Customer, LoginQuery>().ReverseMap();
 
         }
     }

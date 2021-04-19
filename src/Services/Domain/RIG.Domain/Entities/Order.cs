@@ -27,6 +27,8 @@ namespace RIG.Domain.Entities
 
         public Customer Customer { get; set; }
 
+        public List<OrderDetail> OrderDetails { get; set; }
+
 
     }
 

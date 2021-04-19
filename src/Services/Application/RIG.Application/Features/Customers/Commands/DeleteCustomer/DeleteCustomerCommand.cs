@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RIG.Application.Features.Orders.Commands.DeleteOrder
+namespace RIG.Application.Features.Customers.Commands.DeleteCustomer
 {
-    public class DeleteOrderCommand : IRequest<bool>
+    public class DeleteCustomerCommand : IRequest<bool>
     {
         public int Id { get; set; }
     }

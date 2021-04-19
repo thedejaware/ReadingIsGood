@@ -26,5 +26,7 @@ namespace RIG.Application.Features.Orders.Commands.AddOrder
         public string CVV { get; set; }
         public int PaymentMethod { get; set; }
 
+        public List<OrderDetailsVm> OrderDetails { get; set; }
+
     }
 }

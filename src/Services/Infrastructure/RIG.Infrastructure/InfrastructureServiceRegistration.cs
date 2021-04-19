@@ -21,6 +21,9 @@ namespace RIG.Infrastructure
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+
 
             return services;
         }

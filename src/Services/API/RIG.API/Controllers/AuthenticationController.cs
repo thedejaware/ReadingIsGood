@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using RIG.API.Model;
+using RIG.Application.Features.Customers.Queries.Login;
+using RIG.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,21 +22,25 @@ namespace RIG.API.Controllers
     public class AuthenticationController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly IMediator _mediator;
 
-        public AuthenticationController(IConfiguration configuration)
+        public AuthenticationController(IConfiguration configuration, IMediator mediator)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [HttpPost]
-        [Route("Login")]
-        public async Task<IActionResult> Login()
+        [HttpPost(Name = "Login")]
+        [ProducesResponseType(typeof(IEnumerable<CustomerVm>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<CustomerVm>> Login([FromBody] LoginQuery query)
         {
-            if (1 == 1)
+            var result = await _mediator.Send(query);
+            if (result != null)
             {
                 var authClaims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, "mma"),
+                    new Claim(ClaimTypes.Name, result.Username),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
 
@@ -45,10 +54,14 @@ namespace RIG.API.Controllers
                     signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                     );
 
-                return Ok(new
+                return new JsonResult(new ResultModel
                 {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
+                    Success = true,
+                    Data = new
+                    {
+                        token = new JwtSecurityTokenHandler().WriteToken(token),
+                        expiration = token.ValidTo
+                    }
                 });
             }
 
