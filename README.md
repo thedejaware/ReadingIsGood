@@ -69,6 +69,7 @@ Project consists of Core and Periphery Layers.
 
 #### RIG.API Layer
 - This is the Presentation Layer of the project. 
+- Global Exception Handling has been implemented using Custom Middleware
 
 
 
