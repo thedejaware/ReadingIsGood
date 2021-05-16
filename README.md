@@ -1,4 +1,4 @@
-# Customer API and Order API with JWT
+# Customer API and Order API with JWT (CQRS Pattern with MediatR)
 Clean Archtirecture & Domain Driven Design Concepts
 ReadingIsGood - Online Books Retail
 
