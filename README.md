@@ -1,4 +1,5 @@
-# Clean Archtirecture & Domain Driven Design Concepts
+# Customer API and Order API with JWT
+Clean Archtirecture & Domain Driven Design Concepts
 ReadingIsGood - Online Books Retail
 
 This is an ASP.NET Core Web API Project including principles of Clean Architecture and how Domain Driven Design concepts work with Clean Architecture
